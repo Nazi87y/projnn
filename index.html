@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<style>
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes glowing {
+            0%, 100% { box-shadow: 0 0 15px #d4af37; }
+            50% { box-shadow: 0 0 30px #e6be8a; }
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'B Nazanin', sans-serif;
+            background: radial-gradient(circle, #1b1b1b, #0f0f0f);
+            color: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .envelope-container {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+        .envelope {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, #d4af37, #b2966c);
+            border-radius: 15px;
+            transform-origin: top;
+            transition: transform 1s ease-in-out;
+            border: 3px solid #8c744e;
+            animation: glowing 2s infinite alternate;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.8), inset 0px 1px 5px rgba(255, 215, 0, 0.3);
+        }
+        .envelope.open {
+            transform: rotateX(-180deg);
+        }
+        .letter {
+            position: absolute;
+            width: 100%;
+            height: 420px;
+            padding: 25px;
+            background: #fff;
+            color: #333;
+            border-radius: 15px;
+            transform: rotateX(-180deg);
+            backface-visibility: hidden;
+            transition: transform 1s ease-in-out;
+            border: 2px solid #d4af37;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.8);
+            font-size: 1.2rem;
+            line-height: 2;
+            overflow-y: auto;
+        }
+        .envelope.open + .letter {
+            transform: rotateX(0deg);
+        }
+        .letter p {
+            margin: 10px 0;
+            text-align: justify;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+        .letter .highlight {
+            color: #d4af37;
+            font-weight: bold;
+        }
+        .signature {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.3rem;
+            color: #d4af37;
+            font-weight: bold;
+        }
+        .envelope-container:hover {
+            transform: scale(1.05);
+        }
+</style>
+<body dir="rtl">
+    <div class="envelope-container" onclick="openEnvelope()">
+        <div class="envelope"></div>
+        <div class="letter">
+            <p>خیلی خوشحالم که دارمت دختر کوچولوم<span class="highlight">🥺❤️</span></p>
+            <p>حرف زدن باهات خیلی بهم حس خوبی میده و دلم میخواد همیشه پیشم باشی🥲</p>
+            <p>هر وقت ناراحت بودم یا حالم خوب نبوده تو کنارم بودی و با حرفات آرومم کردی.</p>
+            <p>تو <span class="highlight">مهربون‌ترین و خوشگل‌ترین</span> دختر دنیایی، اینقدر خوشگل که دلم میخواد بزارمت یه گوشه و فقط نگات کنم و قربون صدقت برم😙❤️</p>
+            <p>چشمات قشنگه، حرف زدنت قشنگه، صدات قشنگه، موهاتتتت خیلی قشنگههه، خنده‌هاتم قشنگه، حتی دعوا کردنتم قشنگه.</p>
+            <p>تازه وقتایی که قهر می‌کنی یا حسودی می‌کنی خیلی کیوت و خوردنی میشی🥲🥲 ولی کلاً خوردنی‌ای 😁😙</p>
+            <p>مائده تو واسه من <span class="highlight">بهترین آدم دنیا</span>یی و هیچوقت دلم نمیخواد از دستت بدم.</p>
+            <p>هرچیم که بشه دلم میخواد فقط مال من باشی نه کس دیگه‌ای. اینم بدون که <span class="highlight">خیلی خیلی خیلی دوست دارم</span> و تا همیشه پیشت می‌مونم و همیشه ازت مراقبت می‌کنم.</p>
+            <p>خیلی دوست دارم دختر کوچولوم<span class="highlight">🥺❤️‍🩹</span>.</p>
+            <div class="signature">- نازنین</div>
+        </div>
+    </div>
+
+    <script>
+        function openEnvelope() {
+            const envelope = document.querySelector('.envelope');
+            envelope.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
